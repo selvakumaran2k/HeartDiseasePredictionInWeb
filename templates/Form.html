@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HeartDiseasePrediction</title>
+    <style>
+        .data{
+            padding: 10px;
+            background: #5b845b;
+            color: white;
+            border-radius: 20px;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+        .input{
+            background: #cbd7c8;
+            color: #281818;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            font-family: "Comic Sans MS";
+        }
+        .sub{
+          width:50%;
+            height: 30px;
+    margin-left:25%;
+    margin-right:25%;
+
+        }
+    </style>
+</head>
+<body style="background:#efd068;">
+<section class="info" id="intro">
+    <h1>This page predicts you heart disease...</h1>
+</section>
+<section class="data" id="d_one">
+    <form action="predict">
+<div class="input">
+    <section class="sec_heading">Age</section>
+
+  <input type="number" id="age" value="50" name="age"><br><br>
+</div>
+<div class="input">
+<section class="sec_heading">Gender</section>
+       <p class="description">select your gender</p>
+       <select id="gen" name="sex"> <!-- Use "select" to create object -->
+         <option selected value="1">Male</option> <!-- Add all applicable options -->
+         <option value="0">Female</option>
+         <option>other</option> <!-- add selected to change default from first option -->
+       </select>
+        <br>
+        <br>
+</div>
+<div class="input">
+<section class="sec_heading">Chest pain</section>
+        <p class="description">0: Typical angina: chest pain related decrease blood supply to the heart<br>
+1: Atypical angina: chest pain not related to heart<br>
+2: Non-anginal pain: typically esophageal spasms (non heart related)<br>
+3: Asymptomatic: chest pain not showing signs of disease
+        <br></p>
+        <select id="cp" name="cp"> <!-- Use "select" to create object -->
+         <option selected>0</option> <!-- Add all applicable options -->
+         <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          <!-- add selected to change default from first option -->
+       </select>
+<br><br>
+</div>
+<div class="input">
+<section class="sec_heading">Resting blood sugar</section>
+        <p class="description">resting blood pressure (in mm Hg on admission to the hospital) anything above 130-140 is typically cause for concern
+</p>
+  <input type="number" id="rbp" value=200 name="trestbps"><br><br>
+</div>
+<div class="input">
+<section class="sec_heading">Cholestrol</section>
+        <p class="description">above 200 is cause for concern
+</p>
+  <input type="number" id="cholestrol" value=200 name="chol"><br><br>
+</div>
+<div class="input">
+<section class="sec_heading">Sugar level</section>
+        <p class="description"></p>
+  <input type="radio"
+     name="fbs" value="0">
+        <label for="fbs">0</label>
+    <input type="radio"
+     name="fbs" value="1">
+        <label for="fbs">1</label>
+</div>
+
+<div class="input">
+<section class="sec_heading">ECG</section>
+        <p class="description">resting electrocardiographic results:<br>
+            0: Nothing to note<br>
+            1: ST-T Wave abnormality
+            can range from mild symptoms to severe problems
+            signals non-normal heart beat<br>
+            2: Possible or definite left ventricular hypertrophy
+            Enlarged heart's main pumping chamber
+        </p>
+      <input type="radio"
+     name="restecg" value="0">
+    <label for="contactChoice1">0</label>
+
+    <input type="radio"
+     name="restecg" value="1">
+        <label for="contactChoice2">1</label>
+    <input type="radio"
+     name="restecg" value="2">
+        <label for="contactChoice2">2</label>
+</div>
+    <br>
+    <br>
+
+
+<div class="input"class="input">
+<section class="sec_heading">maximum heart rate achived</section>
+        <p class="description"></p>
+  <input type="number" id="recg" value="120" name="thalach"><br><br>
+</div>
+<div class="input">
+<section class="sec_heading">exersise induced agnia</section>
+        <p class="description">(1 = yes; 0 = no)</p>
+        <input type="radio"
+     name="exang" value="0">
+        <label for="contactChoice2">No</label>
+    <input type="radio"
+     name="exang" value="1">
+        <label for="contactChoice2">Yes</label>
+
+<br>
+        <br>
+
+</div>
+<div class="input">
+<section class="sec_heading">old peak</section>
+        <p class="description">ST depression induced by exercise relative to rest looks at stress of heart during excercise unhealthy heart will stress more</p>
+  <input type="number" step="0.1" id="opeak" value="2.0" name="oldpeak"><br><br>
+</div>
+<div class="input">
+<section class="sec_heading">slope</section>
+       <p class="description">The slope of the peak exercise ST segment<br>
+0: Upsloping: better heart rate with excercise (uncommon)<br>
+1: Flatsloping: minimal change (typical healthy heart)<br>
+2: Downslopins: signs of unhealthy heart<br>
+           select it below:<br>
+       </p>
+        <input type="radio"
+     name="slope" value="0">
+    <label for="contactChoice1">0</label>
+
+    <input type="radio"
+     name="slope" value="1">
+        <label for="contactChoice2">1</label>
+    <input type="radio"
+     name="slope" value="2">
+        <label for="contactChoice2">2</label>
+<br>
+        <br>
+</div>
+<div class="input">
+<section class="sec_heading">number of major vessels</section>
+        <p class="description">
+        number of major vessels (0-3) colored by flourosopy
+colored vessel means the doctor can see the blood passing through
+the more blood movement the better (no clots)
+        </p>
+        <input type="radio"
+     name="ca" value="0">
+    <label for="contactChoice1">0</label>
+
+    <input type="radio"
+     name="ca" value="1">
+        <label for="contactChoice2">1</label>
+    <input type="radio"
+     name="ca" value="3">
+        <label for="contactChoice2">2</label>
+    <input type="radio"
+     name="ca" value="3">
+        <label for="contactChoice2">3</label>
+
+<br>
+        <br>
+</div>
+<div class="input">
+<section class="sec_heading">thalium stress result</section>
+        <p class="description">
+0: normal<br>
+1: fixed defect: used to be defect but ok now<br>
+2: reversable defect: no proper blood movement when excercising<br>
+        </p>
+ <input type="radio"
+     name="thal" value="0">
+        <label for="contactChoice2">0</label>
+    <input type="radio"
+     name="thal" value="1">
+        <label for="contactChoice2">1</label>
+    <input type="radio"
+     name="thal" value="2">
+        <label for="contactChoice2">2</label>
+        <br>
+        <br>
+</div>
+        <input class="sub" name="form" type="submit" value="PREDICT"/></form>
+</section>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Training model</title>
+    <style>
+        .pages{
+    background-color: #862a8d;
+    padding: 8px 20px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+            width:max-content;
+            height: 30px;
+    margin-left:5%;
+    margin-right:5%;
+            margin-bottom: 50%;
+            color: white;
+            font-family: "Comic Sans MS";
+
+}
+    </style>
+</head>
+<body style="background:#c55dee;color: white;font-family: 'Comic Sans MS'">
+<section class="conf">
+{% for i in data %}
+    {{ i.2 }}<br><br>
+    <p>Accuracy :</p>
+    {{ i.0 }}<br>
+    <p>confusion matrix :</p>
+    {% for j in i.1 %}
+        {{ j }}<br>
+    {% endfor %}
+    <br>
+    <hr>
+    <hr>
+{% endfor %}
+</section>
+<br><br>
+<a href="from" class="pages"> Predict with this model</a><br><br>
+    <a href="train" class="pages">Train model again </a>
+<br><br>
+<hr>
+<hr>
+</body>
+</html>

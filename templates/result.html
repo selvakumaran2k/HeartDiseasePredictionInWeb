@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicted output</title>
+    <style>
+        .description{
+            padding: 10px;
+            background: #5b845b;
+            color: white;
+            border-radius: 20px;
+            margin-left: 5%;
+            margin-right: 5%;
+        padding-bottom: 20px;
+        }
+        .ent{
+             background: #cbd7c8;
+            color: #281818;
+            margin: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            font-family: "Comic Sans MS";
+        }
+        .pages{
+    background-color: #5465ff;
+    padding: 8px 20px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+            width:max-content;
+            height: 30px;
+    margin-left:5%;
+    margin-right:5%;
+            margin-bottom: 50%;
+            color: white;
+            font-family: "Comic Sans MS";
+
+}
+
+    </style>
+</head>
+<body style="background:{{ color }};">
+
+<h1 style="font-family: 'Comic Sans MS';font-size: 375%;">
+    {{ res }}
+    % <br>chance you have for heart Disease
+</h1>
+<section class="description">
+{% for i in result %}
+    <section class="ent">
+         Algorithm  {{ i.0 }} predicted <br><br>
+    {{ i.1 }} for your condition<br>
+    </section>
+{% endfor %}
+    <a href="from" class="pages"> Predict for another person</a><br><br>
+    <a href="train" class="pages">Train model again </a>
+
+</section>
+</body>
+</html>
